@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>攀岩天气测试页</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+
+    body {
+
+      margin: 0;
+
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      background: #f4f4f4;
+
+      color: #222;
+
+    }
+
+ 
+
+    .page {
+
+      max-width: 900px;
+
+      margin: 0 auto;
+
+      padding: 24px 16px 40px;
+
+    }
+
+ 
+
+    h1 {
+
+      margin: 0 0 16px;
+
+      font-size: 28px;
+
+    }
+
+ 
+
+    .controls {
+
+      display: flex;
+
+      gap: 12px;
+
+      align-items: center;
+
+      margin-bottom: 20px;
+
+      flex-wrap: wrap;
+
+    }
+
+ 
+
+    select, button {
+
+      padding: 10px 14px;
+
+      font-size: 16px;
+
+      border-radius: 10px;
+
+      border: 1px solid #ccc;
+
+      background: white;
+
+      cursor: pointer;
+
+    }
+
+ 
+
+    .panel {
+
+      background: white;
+
+      border-radius: 18px;
+
+      padding: 20px;
+
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+
+      margin-bottom: 18px;
+
+    }
+
+ 
+
+    .summary {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+      gap: 12px;
+
+      margin-top: 16px;
+
+    }
+
+ 
+
+    .metric {
+
+      background: #f8f8f8;
+
+      border-radius: 14px;
+
+      padding: 12px;
+
+    }
+
+ 
+
+    .metric-label {
+
+      font-size: 13px;
+
+      color: #666;
+
+      margin-bottom: 6px;
+
+    }
+
+ 
+
+    .metric-value {
+
+      font-size: 20px;
+
+      font-weight: 700;
+
+    }
+
+ 
+
+    .chart-wrap {
+
+      height: 420px;
+
+    }
+
+ 
+
+    .status {
+
+      color: #666;
+
+      font-size: 14px;
+
+      margin-bottom: 10px;
+
+    }
+
+ 
+
+    @media (max-width: 640px) {
+
+      .chart-wrap {
+
+        height: 360px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="page">
+
+    <h1>1–7 天天气预报测试</h1>
+
+ 
+
+    <div class="controls">
+
+      <label for="locationSelect">选择地点：</label>
+
+      <select id="locationSelect">
+
+        <option value="yangshuo">阳朔</option>
+
+        <option value="yingxi">英西</option>
+
+        <option value="shegeng">社更穿洞</option>
+
+      </select>
+
+      <button id="loadBtn">加载天气</button>
+
+    </div>
+
+ 
+
+    <div class="panel">
+
+      <div id="status" class="status">等待加载数据…</div>
+
+      <div class="chart-wrap">
+
+        <canvas id="weatherChart"></canvas>
+
+      </div>
+
+      <div id="summary" class="summary"></div>
+
+    </div>
+
+  </div>
+
+ 
+
+  <script src="./weather-test.js"></script>
+
+</body>
+
+</html>
